@@ -6,7 +6,8 @@ yarn add react-native-reanimated react-native-gesture-handler
 react-native-screens react-native-safe-area-context @react-native-community/masked-view react-navigation-stack
 yarn add react-native-gifted-chat
 
-server start cd socket.io-backend -> nodemon server.js
+server start
+ cd CharServer -> nodemon server.js
 
 yarn ios & yarn android
 yarn start --reset-cache
