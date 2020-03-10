@@ -4,6 +4,8 @@ import { View, ScrollView, StyleSheet, Text } from 'react-native'
 import Header from './src/Header'
 import Input from './src/Input'
 import Button from './src/Button'
+import TodoList from './src/TodoList'
+import TabBar from './src/TabBar'
 
 let todoIndex = 0
 class App extends React.Component {
@@ -15,6 +17,29 @@ class App extends React.Component {
       type: 'All'
     }
     this.submitTodo = this.submitTodo.bind(this)
+    this.toggleComplete = this.toggleComplete.bind(this)
+    this.deleteTodo = this.deleteTodo.bind(this)
+    this.setType = this.setType.bind(this)
+  }
+
+  setType (type) {
+    this.setState({ type })
+  }
+
+  deleteTodo (todoIndex) {
+    let { todos } = this.state
+    todos = todos.filter(todo => todo.todoIndex !== todoIndex)
+    console.log(todoIndex, todos)
+    this.setState({ todos })
+  }
+  toggleComplete (todoIndex) {
+    let todos = this.state.todos
+    todos.forEach((todo)=>{
+      if(todo.todoIndex === todoIndex){
+        todo.complete = !todo.complete
+      }
+    })
+    this.setState({ todos })
   }
 
   inputChange (inputValue) {
@@ -37,6 +62,7 @@ class App extends React.Component {
     }
     todoIndex++
     const todos = [...this.state.todos, todo]
+    console.log('todos', todos)
     this.setState(
       {
         todos,
@@ -50,7 +76,7 @@ class App extends React.Component {
   }
 
   render () {
-    const { inputValue } = this.state
+    const { inputValue, todos, type } = this.state
     return (
       <View style={styles.container}>
         <ScrollView keyboardShouldPersistTaps='always' style={styles.content}>
@@ -59,8 +85,15 @@ class App extends React.Component {
             inputValue={inputValue}
             inputChange={text => this.inputChange(text)}
           />
-          <Button submitTodo={this.submitTodo}/>
+          <TodoList
+            toggleComplete={this.toggleComplete}
+            deleteTodo={this.deleteTodo}
+            todos={todos}
+            type={type}
+          />
+          <Button submitTodo={this.submitTodo} />
         </ScrollView>
+        <TabBar type={type} setType={this.setType}/>
       </View>
     )
   }
