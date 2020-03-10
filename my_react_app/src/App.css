@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+.Button {
+  color: 'white';
+  background-color :'blue';
+  padding: 100;
+  border-radius: 5;
+  font-size: 15;
+}
