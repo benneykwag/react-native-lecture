@@ -27,8 +27,14 @@ class ViewPost extends Component {
 
   render() {
     return (
-      <View flex center bg-red60>
-        <Text text40>View Post Screen</Text>
+      <View style={{
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center'
+      }}>
+        <Text style={{
+          fontSize: 40
+        }}>View Post Screen</Text>
         <Text>{this.props.text}</Text>
         <Button
           label="Delete Post"
