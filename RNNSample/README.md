@@ -26,7 +26,6 @@ yarn add typescript @types/react @types/react-native @types/styled-components ba
 yarn add react-native-ui-lib react-native-reanimated
 
 yarn add @react-native-community/blur
-
+yarn add @react-native-community/datetimepicker
 yarn add react-native-gesture-handler
 
-yarn add @react-native-community/datetimepicker

@@ -43,11 +43,10 @@ const LabelInfo = Styled.Text`
 //     navigation: NavigationScreenProp<NavigationState>;
 // }
 
-const MovieDetail = () => {
+const MovieDetail = (props) => {
     const [data, setData] = useState<IMovieDetail>();
-
     useEffect(() => {
-        const id = 15725;// navigation.getParam('id');
+        const id = props.id;// navigation.getParam('id');
         console.log('id: ', `https://yts.mx/api/v2/movie_details.json?movie_id=${id}&with_images=true&with_cast=true`)
         fetch(
             `https://yts.mx/api/v2/movie_details.json?movie_id=${id}&with_images=true&with_cast=true`

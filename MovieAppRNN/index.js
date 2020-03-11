@@ -20,7 +20,11 @@ Navigation.events().registerAppLaunchedListener(() => {
           }
         ],
         options: {
-         
+          topBar: {
+            title: {
+              text: 'MovieApp'
+            }
+          }
         }
       }
     }

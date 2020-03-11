@@ -57,6 +57,9 @@ class MovieHome extends React.Component {
                     Navigation.push(this, {
                         component: {
                           name: Screens.MovieDetail,
+                          passProps: {
+                            id: id
+                          },
                           options: {
                             topBar: {
                               backButton: {
