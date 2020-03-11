@@ -6,6 +6,8 @@ import Input from './src/Input'
 import Button from './src/Button'
 import TodoList from './src/TodoList'
 import TabBar from './src/TabBar'
+//외부로 분리해 둔 getStyleSheet 함수 가져오기
+import getStyleSheet from './src/styles';
 
 let todoIndex = 0
 class App extends React.Component {
@@ -14,16 +16,23 @@ class App extends React.Component {
     this.state = {
       inputValue: '',
       todos: [],
-      type: 'All'
+      type: 'All',
+      darkTheme : false
     }
     this.submitTodo = this.submitTodo.bind(this)
     this.toggleComplete = this.toggleComplete.bind(this)
     this.deleteTodo = this.deleteTodo.bind(this)
     this.setType = this.setType.bind(this)
+    this.toggleTheme= this.toggleTheme.bind(this)
+
   }
 
   setType (type) {
     this.setState({ type })
+  }
+
+  toggleTheme(){
+    this.setState({darkTheme: !this.state.darkTheme})
   }
 
   deleteTodo (todoIndex) {
@@ -76,10 +85,15 @@ class App extends React.Component {
   }
 
   render () {
+    const theme = getStyleSheet(this.state.darkTheme)
+    const backgroundColor = StyleSheet.flatten(theme.container).backgroundColor
     const { inputValue, todos, type } = this.state
     return (
-      <View style={styles.container}>
+      <View style={theme.container}>
         <ScrollView keyboardShouldPersistTaps='always' style={styles.content}>
+          <Text style={{
+            color: this.state.darkTheme?'white':'black'
+          }} onPress={this.toggleTheme}>Theme: {backgroundColor} </Text>
           <Header />
           <Input
             inputValue={inputValue}
