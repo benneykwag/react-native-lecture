@@ -40,7 +40,6 @@ class BookDisplay extends React.Component {
   //state = {
     //fullName: this.props.first + "-" + this.props.last
   //};
-
   render() {
     const { fullName } = this.state;
     const { first, last } = this.props;

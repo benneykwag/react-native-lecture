@@ -8,7 +8,7 @@ class MyComponent extends React.Component {
     }
   }
   render () {
-    return <BookDisplay book='React Native ' />
+    return <BookDisplay book={this.state.book} />;
   }
 }
 export default MyComponent
