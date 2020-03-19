@@ -23,6 +23,7 @@ const Todo = ({ todo, toggleComplete, deleteTodo }) => {
 
 const styles = StyleSheet.create({
   container: {
+    width: 200,
     marginLeft: 20,
     marginRight: 20,
     backgroundColor: '#ffffff',
