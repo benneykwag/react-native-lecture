@@ -6,7 +6,7 @@ YellowBox.ignoreWarnings([
 import { createStore, applyMiddleware } from "redux";
 import createSocketIoMiddleware from "redux-socket.io";
 import io from "socket.io-client";
-const socket = io("http://192.168.0.6:3001");
+const socket = io("http://192.168.0.7:3001");
 import React from "react";
 import AppContainer from "./AppContainer";
 import { Provider } from "react-redux";

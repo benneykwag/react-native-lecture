@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import Styled from 'styled-components/native'
-import { Text } from 'react-native'
+import React from 'react';
+import Styled from 'styled-components/native';
 
 const Container = Styled.SafeAreaView`
     position: absolute;
@@ -16,18 +15,17 @@ const ButtonContainer = Styled.TouchableOpacity`
 const Icon = Styled.Image`
 `;
 interface Props {
-    onPress?: () => void;
+  onPress?: () => void;
 }
 
-
-const AddButton = ({onPress }: Props) => {
-    return (
-        <Container>
-            <ButtonContainer onPress={onPress}>
-                <Icon source={require('~/Assets/Images/add.png')} />
-            </ButtonContainer>
-        </Container>
-    )
-}
+const AddButton = ({onPress}: Props) => {
+  return (
+    <Container>
+      <ButtonContainer onPress={onPress}>
+        <Icon source={require('~/Assets/Images/add.png')} />
+      </ButtonContainer>
+    </Container>
+  );
+};
 
 export default AddButton;
